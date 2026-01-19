@@ -1,0 +1,381 @@
+/* ==========================================================================
+   Gløtvold - Responsive Styles
+   Mobile-first approach with breakpoints at 768px and 1024px
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Tablet Breakpoint (768px+)
+   -------------------------------------------------------------------------- */
+@media screen and (min-width: 768px) {
+    /* Typography */
+    h1 {
+        font-size: 3rem;
+    }
+
+    h2 {
+        font-size: 2.25rem;
+    }
+
+    /* Header */
+    .logo__tagline {
+        display: block;
+    }
+
+    /* Services Grid */
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Features Grid */
+    .features {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Service Detail */
+    .service-detail__content {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .service-detail:nth-child(even) .service-detail__content {
+        direction: rtl;
+    }
+
+    .service-detail:nth-child(even) .service-detail__content > * {
+        direction: ltr;
+    }
+
+    /* Values Grid */
+    .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Knowledge List */
+    .knowledge-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Contact Grid */
+    .contact-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* Directions */
+    .directions-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Footer */
+    .footer__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer__bottom {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+
+    /* Cabin Content */
+    .cabin-content {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Desktop Breakpoint (1024px+)
+   -------------------------------------------------------------------------- */
+@media screen and (min-width: 1024px) {
+    /* Header & Navigation */
+    .menu-toggle {
+        display: none;
+    }
+
+    .nav {
+        display: flex;
+    }
+
+    .header__cta {
+        display: block;
+    }
+
+    .mobile-nav {
+        display: none !important;
+    }
+
+    /* Hero */
+    .hero {
+        min-height: calc(100vh - var(--header-height));
+    }
+
+    .hero__title {
+        font-size: 3.5rem;
+    }
+
+    .hero__subtitle {
+        font-size: 1.25rem;
+    }
+
+    /* Services Grid - 3 columns */
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Features - 3 columns */
+    .features {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Values Grid - 4 columns */
+    .values-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* Projects Grid - 3 columns */
+    .projects-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Footer */
+    .footer__grid {
+        grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    }
+
+    /* Quick Contact */
+    .quick-contact__inner {
+        gap: var(--space-2xl);
+    }
+
+    .quick-contact__item {
+        font-size: var(--text-base);
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Large Desktop Breakpoint (1200px+)
+   -------------------------------------------------------------------------- */
+@media screen and (min-width: 1200px) {
+    /* Container wider padding */
+    .container {
+        padding: 0 var(--space-xl);
+    }
+
+    /* Section spacing */
+    .section {
+        padding: var(--space-4xl) 0;
+    }
+
+    /* Hero adjustments */
+    .hero__content {
+        max-width: 800px;
+    }
+
+    /* Service Detail */
+    .service-detail__content {
+        gap: var(--space-3xl);
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Touch Device Optimizations
+   -------------------------------------------------------------------------- */
+@media (hover: none) and (pointer: coarse) {
+    /* Remove hover effects on touch devices */
+    .service-card:hover,
+    .project-card:hover {
+        transform: none;
+    }
+
+    /* Larger touch targets */
+    .btn {
+        min-height: 48px;
+    }
+
+    .nav__link {
+        padding: var(--space-md) 0;
+    }
+
+    .form-checkbox input {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   High DPI / Retina Displays
+   -------------------------------------------------------------------------- */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    /* Ensure crisp borders */
+    .service-card,
+    .contact-form,
+    .contact-info,
+    .value-card {
+        border: 0.5px solid var(--color-border);
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Reduced Motion Preference
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Print Styles
+   -------------------------------------------------------------------------- */
+@media print {
+    /* Hide non-essential elements */
+    .header,
+    .footer,
+    .mobile-nav,
+    .btn,
+    .contact-form,
+    .map-container {
+        display: none !important;
+    }
+
+    /* Reset backgrounds */
+    body {
+        background: white;
+        color: black;
+    }
+
+    .section--primary,
+    .section--light,
+    .hero,
+    .quick-contact,
+    .page-header {
+        background: white !important;
+        color: black !important;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        color: black !important;
+    }
+
+    /* Ensure links are visible */
+    a {
+        color: black !important;
+        text-decoration: underline;
+    }
+
+    a[href]::after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+    }
+
+    /* Page breaks */
+    .service-detail,
+    .section {
+        page-break-inside: avoid;
+    }
+
+    h2, h3 {
+        page-break-after: avoid;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Dark Mode Support (Optional - for future use)
+   -------------------------------------------------------------------------- */
+@media (prefers-color-scheme: dark) {
+    /* Dark mode styles can be added here if needed */
+    /* Currently keeping light mode only for brand consistency */
+}
+
+/* --------------------------------------------------------------------------
+   Landscape Mobile Optimization
+   -------------------------------------------------------------------------- */
+@media screen and (max-width: 767px) and (orientation: landscape) {
+    .hero {
+        min-height: auto;
+        padding: var(--space-3xl) 0;
+    }
+
+    .hero__title {
+        font-size: 2rem;
+    }
+
+    .page-header {
+        padding: var(--space-2xl) 0;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Small Mobile Adjustments (320px - 375px)
+   -------------------------------------------------------------------------- */
+@media screen and (max-width: 375px) {
+    :root {
+        --space-lg: 1.25rem;
+        --space-xl: 1.5rem;
+        --space-2xl: 2rem;
+    }
+
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .btn {
+        padding: var(--space-sm) var(--space-lg);
+        font-size: var(--text-sm);
+    }
+
+    .hero__buttons {
+        flex-direction: column;
+    }
+
+    .hero__buttons .btn {
+        width: 100%;
+    }
+
+    .quick-contact__inner {
+        flex-direction: column;
+        gap: var(--space-sm);
+    }
+
+    .area-list {
+        gap: var(--space-sm);
+    }
+
+    .area-tag {
+        padding: var(--space-xs) var(--space-md);
+        font-size: var(--text-sm);
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Container Query Support (Progressive Enhancement)
+   -------------------------------------------------------------------------- */
+@supports (container-type: inline-size) {
+    .services-grid,
+    .projects-grid,
+    .features {
+        container-type: inline-size;
+    }
+
+    @container (min-width: 500px) {
+        .service-card {
+            text-align: left;
+        }
+
+        .service-card__icon {
+            margin: 0 0 var(--space-md) 0;
+        }
+    }
+}
